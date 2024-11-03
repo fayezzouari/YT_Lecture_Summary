@@ -9,7 +9,7 @@ def split_text_into_chunks(text, chunk_size=1000):
 
 llm = ChatGroq(
     model="llama-3.2-90b-vision-preview",
-    api_key="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",
+    api_key="api_key",
     temperature=0.5,
     max_tokens=4000,  # Limit the response length to avoid rate limit errors
     timeout=30,
