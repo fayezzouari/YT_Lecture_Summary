@@ -1,0 +1,18 @@
+summarize_video_task:
+  description: >
+    Given a YouTube video link, extract the transcript and summarize it
+    concisely, focusing on the most critical points of the lecture.
+    Use a maximum of three concise paragraphs.
+  expected_output: >
+    A detailed summary that captures the main ideas of the video.
+  agent: video_summarization_agent 
+
+scrape_video:
+  description: >
+    Given a YouTube video link, analyze the video content and summarize the main points, focusing on the most important 
+    details relevant to the topic discussed.
+  expected_output: >
+    A concise summary of the main points from the video, including critical information, key arguments, and any important 
+    examples or data mentioned.
+  agent: video_scraping_agent
+ 
