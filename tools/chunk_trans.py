@@ -2,7 +2,7 @@ from langchain_groq import ChatGroq
 import time
 
 
-def split_text_into_chunks(text, chunk_size=450):
+def split_text_into_chunks(text, chunk_size=1000):
     words = text.split()
     for i in range(0, len(words), chunk_size):
         yield " ".join(words[i:i + chunk_size])
@@ -11,14 +11,14 @@ llm = ChatGroq(
     model="llama-3.2-90b-vision-preview",
     api_key="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",
     temperature=0.5,
-    max_tokens=8000,  # Limit the response length to avoid rate limit errors
+    max_tokens=4000,  # Limit the response length to avoid rate limit errors
     timeout=30,
     max_retries=2,
 )
 
 def summarize_text(text):
     summaries = []
-    for chunk in split_text_into_chunks(text, chunk_size=450):  # Adjust `chunk_size` if needed
+    for chunk in split_text_into_chunks(text, chunk_size=1000):  # Adjust `chunk_size` if needed
         prompt = f"Summarize the following text into a single paragraph:\n\n{chunk}"
         try:
             response = llm.invoke(prompt)  # Make the API call to summarize the chunk
